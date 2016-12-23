@@ -136,14 +136,17 @@ shinyServer(function(input, output) {
        
  removed.findIons<-reactive({Remove.Ion(findIons(), tableIons(), row.selec())})
  
+ For.output<-reactive({ Plot.FindIons(removed.findIons(), Peaks(),scan=input$scan, input$ppseq,input$left, input$right, input$force, input$annotated, input$alpha, input$adjust.x, input$adjust.y, input$label.size, input$peakwidth) 
+ })
+ 
  observeEvent(input$remove,{
    output$new.spectrum<-renderPlot({
-     isolate(Plot.FindIons(removed.findIons(), Peaks(),scan=input$scan, input$ppseq,input$left, input$right, input$force, input$annotated, input$alpha, input$adjust.x, input$adjust.y, input$label.size, input$peakwidth)) 
-   }) })
+     isolate(For.output())
+        }) })
  ## ====== this is for plot downloading using ggsave().
  output$down.spec<-downloadHandler(filename = function(){paste("MS2-",Sys.Date(),".png", sep="")}, content = function(file){
    device<-function(...,width=width, height=height) grDevices::png(..., width = width, height = height, res=input$Res, units = "in")
-   ggsave(file,plot=isolate(Plot.FindIons(removed.findIons(), Peaks(),scan=input$scan, input$ppseq,input$left, input$right, input$force, input$annotated, input$alpha, input$adjust.x, input$adjust.y, input$label.size, input$peakwidth)),device ="png", dpi = input$Res)}, contentType = "image/png")  
+   ggsave(file,plot=isolate(For.output()),device ="png", dpi = input$Res, height = 5, width =10 , units = "in")}, contentType = "image/png")  
  ## ====== thsi is for table downloading using write.csv().
  output$down.table<-downloadHandler(filename = function(){paste("PeakList-", Sys.Date(), ".csv", sep="")}, content = function(file){write.csv(tableIons(), file)})
   

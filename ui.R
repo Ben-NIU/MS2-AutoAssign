@@ -39,7 +39,7 @@ dashboardPage(
                   p(span(strong("in silico Fragments:"), style="color:black; font-size:11pt")),
                   p(span("Input peptide sequence from top of sidebar. For labeled peptide, need specify the chemical formula (e.g., C2 H3 N O, the space in between elements are required!) and name of labeling. Neutral loss can be considered by inputting the net composition of neutral loss.", style="color:grey50; font-size:10.5pt")),
                   p(span(strong("Peaks Matching:"), style="color:black; font-size:11pt")),
-                  p(span("This tab focuses on MS/MS spectrum display, annotation, and output. First upload file in .mzXML format.", a("Use ProteoWizard to convert raw data to mxXML.", href="http://proteowizard.sourceforge.net/downloads.shtml"), "The spectrum with given scan number will be shown in MS/MS-panel, one can adjust the displayed m/z range and MS peak width in Spectrum Settings. When there is no peptide sequence input, the scan number is displayed as spectral title; however, a peptide sequence is needed in order to assign the peaks.",style="color:grey50; font-size:10.5pt")),
+                  p(span("This tab focuses on MS/MS spectrum display, annotation, and output. First upload file in .mzXML format.", a("Use ProteoWizard to convert raw data to mxXML.", href="http://proteowizard.sourceforge.net/downloads.shtml", target="_blank"), "The spectrum with given scan number will be shown in MS/MS-panel, one can adjust the displayed m/z range and MS peak width in Spectrum Settings. When there is no peptide sequence input, the scan number is displayed as spectral title; however, a peptide sequence is needed in order to assign the peaks.",style="color:grey50; font-size:10.5pt")),
                   p(span("Within Annotation Settings, the intensity cutoff% determines the shreshold of relative intensities for peaks to be annotated. Tolerance in ppm refers to the tolerance of m/z difference between in silico and experimental results. Repulsion works in a way as if all the annotated labels would repel, so that they won't stack onto each other, the higher this value is, the more repulsion would be.", style="color:grey50; font-size:10.5pt"))
                   
                   )
@@ -50,8 +50,8 @@ dashboardPage(
                       hr(),
                       img(src="wustl-logo.png", width=90, height=90, align="right"), 
                       br(),
-                       p(span(a("Washington University in St. Louis", href="https://wustl.edu"), style="font-family:'times';color:black; font-size:10.5pt")),
-                       p(span(a("Gross Lab: NIH/NCRR Mass Spectrometry Resource", href="http://msr.dom.wustl.edu/michael-l-gross-ph-d/"), style="font-family:'times';color:black; font-size:10.5pt"))
+                       p(span(a("Washington University in St. Louis", href="https://wustl.edu", target="_blank"), style="font-family:'times';color:black; font-size:10.5pt")),
+                       p(span(a("Gross Lab: NIH/NCRR Mass Spectrometry Resource", href="http://msr.dom.wustl.edu/michael-l-gross-ph-d/", target="_blank"), style="font-family:'times';color:black; font-size:10.5pt"))
                       
                       
                        ),
