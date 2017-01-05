@@ -84,7 +84,7 @@ dashboardPage(
                   box(title="Display Settings", status="primary", solidHeader = TRUE, collapsible = TRUE, collapsed = TRUE,
                       selectInput("charge", label="Charge state to display", choices = c("+1"="1","+2"="2","+3"="3"), selected = c("1","2"), multiple = TRUE),
                       fluidRow(
-                        column(5,checkboxGroupInput("type", label="Ion series to display", choices = c("y-ion"="y","b-ion"="b"), selected =c("y","b"), inline = TRUE  )),
+                        column(5,checkboxGroupInput("type", label="Ion series to display", choices = c("y-ion"="y","b-ion"="b", "a-ion"="a"), selected =c("y","b"), inline = TRUE  )),
                         column(5, checkboxInput("withNT", label="Show neutral loss?", value=FALSE))
                       ))
               

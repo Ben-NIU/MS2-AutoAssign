@@ -1,6 +1,7 @@
 ## This function takes the peptide sequence, modification position and formula and name,and IAA or not to determine the "insilico" y and b series (or c and z ion series) product-ions.
 source("FragmentPeptide2.R")
 source("form.neutral.R") ## the form.neutral.R takes just the formula of neutral loss, and converts it to the list.
+source("add.Aions.R") ## this function simply adds the calculated a-ions for the first two amino acids of the peptide, to the tail of the list.
 inSilico<-function(pp.seq="", mod.pos=1, mod.fm="", mod.name="X",IAA=TRUE, neutral.fm=""){
   ## this form() function takes the peptide sequence, the position of modification (in number, e.g., 3), and the formula of modification, to generate the final formula of that residue plus the modification.  
   form<-function(mod.fm, pp.seq, mod.pos){
@@ -86,5 +87,6 @@ if(mod.fm==""){FP2.mod$label<-""
 } else {
   LB<-apply(as.matrix(FP2.mod), 1, label,pp.seq, mod.pos, mod.name)
   FP2.mod$label<-LB}
+FP2.mod<-add.Aions(FP2.mod)
   return(FP2.mod)
 }
